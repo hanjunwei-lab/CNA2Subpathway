@@ -6,7 +6,7 @@ knitr::opts_chunk$set(tidy = FALSE,
 ## ----eval=TRUE-----------------------------------------------------------
 #
 require(CNA2Subpathway)
-# obtain Copy Number Aberration profile data
+# obtain Copy Number Alteration profile data
 CNAP<-GetExampleData("CNAP")
 head(CNAP[1:10,1:10])
 # obtion amplified genes

@@ -7,7 +7,7 @@
 GetExampleData(exampleData)
 }
 \arguments{
-\item{exampleData}{Acharacter,shouldbeoneof"ampGene","delGene","GEP","CNAP", "SubPathwayInfo" ,"GoInfo","GoSubPconGene","Jaccardscore","SubPathwaymapdata","CNAlabelresult","CNADEscore"and "CNA2Subpathwayresult".}
+\item{exampleData}{A character,should be one of"ampGene","delGene","GEP","CNAP", "SubPathwayInfo" ,"GoInfo","GoSubPconGene","Jaccardscore","SubPathwaymapdata","CNAlabelresult","CNADEscore"and "CNA2Subpathwayresult".}
 }
 \value{
 data

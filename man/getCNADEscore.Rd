@@ -12,10 +12,10 @@ getCNADEscore(inexpData, CNALabel)
 \item{CNALabel}{The CNA label (the result of function getCNAlabel)}
 }
 \value{
-A matrix of the Student’s t-test result and CNADEscore
+A matrix of the Student’s t-test result and CNA-DEscore
 }
 \description{
-The function getCNADEscore used calculate the CNADEscore.The CNADEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1.
+The function getCNADEscore used calculate the CNA-DEscore.The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1.
 }
 \examples{
 # obtain GEP data

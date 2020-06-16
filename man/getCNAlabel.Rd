@@ -20,7 +20,7 @@ A binary matrix
 The function getCNAlabel used to discretize the CNA profile to a binary matrix.
 }
 \examples{
-# obtain Copy number variation profile data
+# obtain Copy Number Alteration profile data
 CNAP<-GetExampleData("CNAP")
 head(CNAP[1:10,1:10])
 # obtion amplified genes

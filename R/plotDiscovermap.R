@@ -1,8 +1,8 @@
 
 ##' @title plotDiscovermap
-##' @description we use copy number variation data to polt discover.
+##' @description we use Copy Number Alteration data to polt discover.
 ##' @param genes A vector of strings. The user intresting and happened CNA genes symbol.
-##' @param CNAmatrix The copy number variation matrix. It takes the from of a binary matrix. Only 0 ang 1 are allowed as values.
+##' @param CNAmatrix The copy number alteration matrix. It takes the from of a binary matrix. Only 0 ang 1 are allowed as values.
 ##' @return Groupwise test of the discover result
 ##' @importFrom discover discover.matrix
 ##' @importFrom discover groupwise.discover.test

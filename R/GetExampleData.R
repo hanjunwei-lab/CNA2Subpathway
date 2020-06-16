@@ -1,6 +1,6 @@
 #' @title GetExampleData
 #' @description Get the example data of test package for litte trials
-#' @param exampleData  Acharacter,shouldbeoneof"ampGene","delGene","GEP","CNAP", "SubPathwayInfo" ,"GoInfo","GoSubPconGene","Jaccardscore","SubPathwaymapdata","CNAlabelresult","CNADEscore"and "CNA2Subpathwayresult".
+#' @param exampleData  A character,should be one of"ampGene","delGene","GEP","CNAP", "SubPathwayInfo" ,"GoInfo","GoSubPconGene","Jaccardscore","SubPathwaymapdata","CNAlabelresult","CNADEscore"and "CNA2Subpathwayresult".
 #' @return data
 #' @export
 

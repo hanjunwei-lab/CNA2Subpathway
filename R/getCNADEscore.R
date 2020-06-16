@@ -1,10 +1,10 @@
 
 
 ##' @title getCNADEscore
-##' @description The function getCNADEscore used calculate the CNADEscore.The CNADEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1.
+##' @description The function getCNADEscore used calculate the CNA-DEscore.The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1.
 ##' @param inexpData Gene Expression profile(GEP)
 ##' @param CNALabel  The CNA label (the result of function getCNAlabel)
-##' @return A matrix of the Student’s t-test result and CNADEscore
+##' @return A matrix of the Student’s t-test result and CNA-DEscore
 ##' @export
 ##' @examples
 ##' # obtain GEP data

@@ -32,23 +32,23 @@ The IDSCNA method consists of three parts:
    
   - 1.Obtin the CNA label. We made a CNA label based on the CNA profile and the amplified and deleted genes in the GISTIC2 results. We discretize the CNA profile based on the amplified gene and the deleted gene to a binary matrix. label 1 represents amplification in the amplified gene and deletion in the deleted gene;label 0 vice versa.
 
-  - 2.Calculate the CNA-DEscore. The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1, then take the absolute value. We denote these transformed CNA-DE scores for each gene.
+  - 2.Calculate the CNA-DEscore. The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1, then take the absolute value. We denote these transformed CNA-DEscores for each gene.
 
-  - 3.Constructing network and randomization. In our method, we fist constructed a Subpathway(SP)-GO bipartite network. We define an edge between a subpathway and a Go term, if they have a common gene, and give the weight of this edge that calculate by the Jaccard index and CNADEscore. Next, we made the SP-GO network convert to SP-SP network, similarly, we define an edge between two subpathways, if thet have common biology function, and the edge weights will be larger for pairs of subpathways that relate more to GO and CNA. Then, we use eigenvector centrality measure to calculate how central each subpathwaty is in this network. Finally, the significance of these centrality scores is assessed using a bootstrap-based randomization method.
+  - 3.Constructing network and randomization. In our method, we fist constructed a Subpathway(SP)-GO bipartite network. We define an edge between a subpathway and a Go term, if they have a common gene, and give the weight of this edge that calculate by the Jaccard index and CNA-DEscore. Next, we made the SP-GO network convert to SP-SP network, similarly, we define an edge between two subpathways, if thet have common biology function, and the edge weights will be larger for pairs of subpathways that relate more to GO and CNA. Then, we use eigenvector centrality measure to calculate how central each subpathwaty is in this network. Finally, the significance of these centrality scores is assessed using a bootstrap-based randomization method.
 
    This package provides the **getExampleData** function to return example data and environment variables, such as the data of CNAP and so on.</font>
 
 *****
 ### <font face="微软雅黑">Example 1 : Convert the CNA profile into a binary matrix. </font>
 
-<font face="微软雅黑">  The function **getCNAlabel** be used to discretize the CNA profile to a binary matrix. This function requires the user to input the Copy Number Aberration profile and those amplified and deleted genes, according to the results of GISTIC2 analysis, and the function can define their own dataset list data as input. We selected a part of the Breast cancer the CNA data in the TCGA database. Those example dates are saved into the package environment variables.
+<font face="微软雅黑">  The function **getCNAlabel** be used to discretize the CNA profile to a binary matrix. This function requires the user to input the Copy Number Alteration profile and those amplified and deleted genes, according to the results of GISTIC2 analysis, and the function can define their own dataset list data as input. We selected a part of the Breast cancer the CNA data in the TCGA database. Those example dates are saved into the package environment variables.
   
 The commands are as follows: </font>
 
 ```{r eval=TRUE}
 #
 require(CNA2Subpathway)
-# obtain Copy Number Aberration profile data
+# obtain Copy Number Alteration profile data
 CNAP<-GetExampleData("CNAP")
 head(CNAP[1:10,1:10])
 # obtion amplified genes
@@ -65,7 +65,7 @@ head(CNAlabelresult[1:10,1:10])
 
 ### <font face="微软雅黑"> Example 2 : Calculate the CNA-DEscore. </font>
 
-<font face="微软雅黑"> The function **getCNADEscore** used to calculate CNA-DEscore for each gene, that via Student's t-test to computed t scores and than standardized them to a normal distribution with a mean of 0 and an SD of 1. We classify samples of gene expression data based on copy number aberration. This function requires the user input the gene expression profile(GEP) and the CNA label(the result of the function getCNAlabel).
+<font face="微软雅黑"> The function **getCNADEscore** used to calculate CNA-DEscore for each gene, that via Student's t-test to computed t scores and than standardized them to a normal distribution with a mean of 0 and an SD of 1. We classify samples of gene expression data based on copy number Alteration. This function requires the user input the gene expression profile(GEP) and the CNA label(the result of the function getCNAlabel).
   
   The commands are as follows: </font>
 
@@ -85,7 +85,7 @@ head(CNADEscore[1:10,])
 
 ###<font face="微软雅黑">  Example 3 : Constructing network and randomization. </font>
 
-<font face="微软雅黑">  The function **IDSubPath** used to find significant dysregulate subpathways by the CNA2Subpathway method. According our method, in this function, the user need input 6 variable. Four of six variable can obtain from our example data, those data from KEGG and GO, and the user can change at will also. The "CNADEscore" variable is result of function getCNADEscore. And the last variable is nperm, that representative number of disturbances, usually nperm = 1000 or bigger as statistically significant. 
+<font face="微软雅黑">  The function **IDSubPath** used to find significant dysregulate subpathways by the CNA2Subpathway method. According our method, in this function, the user need input 6 variable. Four of six variable can obtain from our example data, those data from KEGG and GO, and the user can change at need also. The "CNADEscore" variable is result of function getCNADEscore. And the last variable is nperm, that representative number of disturbances, usually nperm = 1000 or bigger as statistically significant. 
 
   The commands are as follows: </font>
 
