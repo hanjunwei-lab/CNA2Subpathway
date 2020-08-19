@@ -26,13 +26,13 @@ knitr::opts_chunk$set(tidy = FALSE,
 
 ### <font face="微软雅黑"> Introduce </font>
 
-<font face="微软雅黑"> This vignette illustrates how to easily use the **CNA2Subpathway package**. Our method aims to identifed dysregulated subpathway driven by Copy Number Alteration(CNA), called IDSCNA. It is a network-based method for integrating multi-omics data and biological function data to identify cancer-related subpathway. We constructed a network that implicitly links subpathways through their common function, and the edge weights depends on both CNA data and gene expression(GE) data. 
+<font face="微软雅黑"> This vignette illustrates how to easily use the **CNA2Subpathway package**. This vignette illustrates how to easily use the **CNA2Subpathway package**. Here, we propose a network-based calculated method, CNA2Subpathway, to identify dysfunctional subpathways with respect to somatic CNAs in cancer by integrating CNAs data, gene expression data, and subpathway crosstalk network. 
 
 The IDSCNA method consists of three parts:
    
-  - 1.Obtin the CNA label. We made a CNA label based on the CNA profile and the amplified and deleted genes in the GISTIC2 results. We discretize the CNA profile based on the amplified gene and the deleted gene to a binary matrix. label 1 represents amplification in the amplified gene and deletion in the deleted gene;label 0 vice versa.
+  - 1.Obtin the CNA label. We made a CNA label based on the CNAs profile and the amplified and deleted genes in the GISTIC2 results. We discretize the CNAs profile based on the amplified gene and the deleted gene to a binary matrix. label 1 represents amplification in the amplified gene and deletion in the deleted gene;label 0 vice versa.
 
-  - 2.Calculate the CNA-DEscore. The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1, then take the absolute value. We denote these transformed CNA-DEscores for each gene.
+  - 2.Calculate the CNA-DEscore. The CNA-DEscore is defined as differentially expressed genes driven by CNAs. We use Student’s t-test method to compute the gene differentially expressed level between CNA labels, and convert the t-test p-value of each gene to z-score.The z-score is defined as CNA-DEscore, and a larger CNA-DEscore indicates the gene regulated by its CNA to a greater extent.
 
   - 3.Constructing network and randomization. In our method, we fist constructed a Subpathway(SP)-GO bipartite network. We define an edge between a subpathway and a Go term, if they have a common gene, and give the weight of this edge that calculate by the Jaccard index and CNA-DEscore. Next, we made the SP-GO network convert to SP-SP network, similarly, we define an edge between two subpathways, if thet have common biology function, and the edge weights will be larger for pairs of subpathways that relate more to GO and CNA. Then, we use eigenvector centrality measure to calculate how central each subpathwaty is in this network. Finally, the significance of these centrality scores is assessed using a bootstrap-based randomization method.
 
@@ -65,8 +65,8 @@ head(CNAlabelresult[1:10,1:10])
 
 ### <font face="微软雅黑"> Example 2 : Calculate the CNA-DEscore. </font>
 
-<font face="微软雅黑"> The function **getCNADEscore** used to calculate CNA-DEscore for each gene, that via Student's t-test to computed t scores and than standardized them to a normal distribution with a mean of 0 and an SD of 1. We classify samples of gene expression data based on copy number Alteration. This function requires the user input the gene expression profile(GEP) and the CNA label(the result of the function getCNAlabel).
-  
+<font face="微软雅黑"> The function **getCNADEscore** used to calculate CNA-DEscore for each gene, we use Student’s t-test method to compute the gene differentially expressed level between CNA labels. To compare the genes regulated by CNAs at a common level, we convert the t-test p-value of each gene to z-score. This function requires the user input the gene expression profile(GEP) and the CNA label(the result of the function getCNAlabel).
+
   The commands are as follows: </font>
 
 

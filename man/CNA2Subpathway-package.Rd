@@ -6,7 +6,7 @@
 \alias{CNA2Subpathway}
 \title{The CNA2Subpathway package}
 \description{
-CNA2Subpathway is a R package for based on Copy Number Alteration to identify dysregulated subpathway in cancer.
+CNA2Subpathway is a R package for based on Copy Number Alterations(CNAs) to identify dysregulated subpathway in cancer.
 }
 \details{
 CNA2Subpathway

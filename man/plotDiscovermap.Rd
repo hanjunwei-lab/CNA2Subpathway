@@ -7,15 +7,15 @@
 plotDiscovermap(genes, CNAmatrix)
 }
 \arguments{
-\item{genes}{A vector of strings. The user intresting and happened CNA genes symbol.}
+\item{genes}{A vector of strings. The user intresting and happened CNAs genes symbol.}
 
-\item{CNAmatrix}{The copy number alteration matrix. It takes the from of a binary matrix. Only 0 ang 1 are allowed as values.}
+\item{CNAmatrix}{The copy number alterations matrix. It takes the from of a binary matrix. Only 0 ang 1 are allowed as values.}
 }
 \value{
 Groupwise test of the discover result
 }
 \description{
-we use Copy Number Alteration data to polt discover.
+we use Copy Number Alterations data to polt discover.
 }
 \examples{
 # load depend package
