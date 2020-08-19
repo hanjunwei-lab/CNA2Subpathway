@@ -15,7 +15,7 @@ getCNADEscore(inexpData, CNALabel)
 A matrix of the Student’s t-test result and CNA-DEscore
 }
 \description{
-The function getCNADEscore used calculate the CNA-DEscore.The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1.
+The function getCNADEscore used calculate the CNA-DEscore.we use Student’s t-test method to compute the gene differentially expressed level between CNA labels. To compare the genes regulated by CNAs at a common level, we convert the t-test p-value of each gene to z-score.
 }
 \examples{
 # obtain GEP data

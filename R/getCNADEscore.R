@@ -1,7 +1,7 @@
 
 
 ##' @title getCNADEscore
-##' @description The function getCNADEscore used calculate the CNA-DEscore.The CNA-DEscore is defined as differentially expressed genes driven by CNA. We used the Student’s t-test to calculate the t scores with the CNA label, and standardized them to a normal distribution with a mean of 0 and an SD of 1.
+##' @description The function getCNADEscore used calculate the CNA-DEscore.we use Student’s t-test method to compute the gene differentially expressed level between CNA labels. To compare the genes regulated by CNAs at a common level, we convert the t-test p-value of each gene to z-score.
 ##' @param inexpData Gene Expression profile(GEP)
 ##' @param CNALabel  The CNA label (the result of function getCNAlabel)
 ##' @return A matrix of the Student’s t-test result and CNA-DEscore
@@ -47,7 +47,7 @@ getCNADEscore <- function(inexpData, CNALabel){
       Ttest[i,2]<-0.5
     }
     P<-Ttest[i,2]
-    Zvalue <- qnorm(P ,mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+    Zvalue <- qnorm(P ,mean = 0, sd = 1, lower.tail = FALSE, log.p = FALSE)
     Ttest[i,3]<-Zvalue
   }
   return(Ttest)
