@@ -30,7 +30,7 @@ knitr::opts_chunk$set(tidy = FALSE,
 
 The IDSCNA method consists of three parts:
    
-  - 1.Obtin the CNA label. We made a CNA label based on the CNAs profile and the amplified and deleted genes in the GISTIC2 results. We discretize the CNAs profile based on the amplified gene and the deleted gene to a binary matrix. label 1 represents amplification in the amplified gene and deletion in the deleted gene;label 0 vice versa.
+  - 1.Obtain the CNA label. We made a CNA label based on the CNAs profile and the amplified and deleted genes in the GISTIC2 results. We discretize the CNAs profile based on the amplified gene and the deleted gene to a binary matrix. label 1 represents amplification in the amplified gene and deletion in the deleted gene;label 0 vice versa.
 
   - 2.Calculate the CNA-DEscore. The CNA-DEscore is defined as differentially expressed genes driven by CNAs. We use Student’s t-test method to compute the gene differentially expressed level between CNA labels, and convert the t-test p-value of each gene to z-score.The z-score is defined as CNA-DEscore, and a larger CNA-DEscore indicates the gene regulated by its CNA to a greater extent.
 
