@@ -9,7 +9,7 @@
 > Installation method：
 ```
 1. library(devtools); 
-   install_github("hanjunwei-lab/CNA2Subpathway")
+   install_github("hanjunwei-lab/CNA2Subpathway", build_vignettes = TRUE)
 2. install.packages("CNA2Subpathway")
 Use：
 library(CNA2Subpathway)
