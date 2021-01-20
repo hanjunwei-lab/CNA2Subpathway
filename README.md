@@ -10,11 +10,14 @@
 ```
 1. library(devtools); 
    install_github("hanjunwei-lab/CNA2Subpathway", build_vignettes = TRUE)
-2. install.packages("CNA2Subpathway")
+2. ##install dependency package "discover"(https://github.com/NKI-CCB/DISCOVER.git)
+   options(repos=c(getOption("repos"), "http://ccb.nki.nl/software/discover/repos/r"));
+   install.packages("discover");
+3. install.packages("CNA2Subpathway")
 Use：
 library(CNA2Subpathway)
 ```
 
 # Please cite the following article when using CNA2Subpathway:
-> Waiting for publication
+> Sheng Y, Jiang Y, Yang Y, Li X, Qiu J, Wu J, Cheng L, Han J. CNA2Subpathway: identification of dysregulated subpathway driven by copy number alterations in cancer. Brief Bioinform. 2021 Jan 11:bbaa413. doi: 10.1093/bib/bbaa413. Epub ahead of print. PMID: 33423051.
 
